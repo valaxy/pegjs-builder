@@ -2,11 +2,11 @@ import rule from "../../lib/peg/rule"
 import parsingExpression from "../../lib/peg/parsingExpression"
 import subRule from "../../lib/peg/pattern/subRule"
 import label from "../../lib/peg/pattern/label"
-import sequence from "../../lib/peg/pattern/sequence";
-import chunk from "../../lib/peg/pattern/chunk";
-import oneOrMore from "../../lib/peg/pattern/oneOrMore";
-import anyOf from "../../lib/peg/pattern/anyOf";
-import rangeOf from "../../lib/peg/pattern/rangeOf";
+import sequence from "../../lib/peg/pattern/sequence"
+import chunk from "../../lib/peg/pattern/chunk"
+import oneOrMore from "../../lib/peg/pattern/oneOrMore"
+import anyOf from "../../lib/peg/pattern/anyOf"
+import rangeOf from "../../lib/peg/pattern/rangeOf"
 
 QUnit.module('Rule')
 
@@ -25,7 +25,10 @@ QUnit.test('default', assert => {
                 label('left', subRule('multiplicative')),
                 chunk('+'),
                 label('right', subRule('additive'))
-            )
+            ),
+            function () {
+                return left + right
+            }
         ),
         parsingExpression(
             subRule('multiplicative')
@@ -38,7 +41,10 @@ QUnit.test('default', assert => {
                 label('left', subRule('primary')),
                 chunk('*'),
                 label('right', subRule('multiplicative'))
-            )
+            ),
+            function () {
+                return left * right
+            }
         ),
         parsingExpression(
             subRule('primary')
@@ -54,7 +60,10 @@ QUnit.test('default', assert => {
                 chunk('('),
                 label('additive', subRule('additive')),
                 chunk(')')
-            )
+            ),
+            function () {
+                return additive
+            }
         )
     ])
 
@@ -62,7 +71,10 @@ QUnit.test('default', assert => {
         parsingExpression(
             label('digits', oneOrMore(
                 anyOf(rangeOf('0', '9'))
-            ))
+            )),
+            function () {
+                return parseInt(digits.join(""), 10)
+            }
         )
     ], 'integer')
 

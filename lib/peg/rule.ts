@@ -2,7 +2,7 @@ import ParsingExpression from "./parsingExpression"
 import Pattern from "./pattern/pattern"
 import stringHelp from '../utility/stringHelp'
 
-// todo, lack human-readable name
+const INDENT = '    '
 
 export class Rule extends Pattern {
     private _name:string
@@ -24,10 +24,9 @@ export class Rule extends Pattern {
 
 
     toPegText() {
-        let indent       = '    '
         let exps         = this.expressions.map((exp, index) => {
             let startSymbol = index == 0 ? '=' : '/'
-            return `${indent}${startSymbol} ${this.expressions[index].toPegText()}\n`
+            return `${INDENT}${startSymbol} ${this.expressions[index].toPegText()}\n`
         })
         let readableName = this.readableName ? JSON.stringify(this.readableName) : ''
 
