@@ -7,12 +7,18 @@ export class ParsingExpression extends Pattern {
 
     get pattern() { return this._pattern }
 
+    set pattern(value) { this._pattern = value }
+
+
     get action() { return this._action }
 
+    set action(value) { this._action = value }
+
+    
     constructor(pattern, action?) {
         super()
-        this._pattern = pattern
-        this._action  = action
+        this.pattern = pattern
+        this.action  = action
     }
 
     toPegText() {

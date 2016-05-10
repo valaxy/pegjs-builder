@@ -11,15 +11,25 @@ export class Rule extends Pattern {
 
     get name() { return this._name }
 
+    set name(value) { this._name = value }
+
+
     get expressions() { return this._expressions}
+
+    set expressions(value) { this._expressions = value }
+
 
     get readableName() { return this._readableName }
 
+    set readableName(value) { this._readableName = value }
+
+
+
     constructor(name, expressions, readableName = null) {
         super()
-        this._name         = name
-        this._expressions  = expressions
-        this._readableName = readableName
+        this.name         = name
+        this.expressions  = expressions
+        this.readableName = readableName
     }
 
 
