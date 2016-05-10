@@ -8,6 +8,7 @@ import oneOrMore from "../../lib/peg/pattern/oneOrMore"
 import anyOf from "../../lib/peg/pattern/anyOf"
 import rangeOf from "../../lib/peg/pattern/rangeOf"
 import Syntax from '../../lib/peg/syntax'
+import _ = require('underscore')
 
 QUnit.module('Syntax')
 
@@ -74,9 +75,7 @@ QUnit.test('default', assert => {
                 label('digits', oneOrMore(
                     anyOf(rangeOf('0', '9'))
                 )),
-                function () {
-                    return parseInt(digits.join(""), 10)
-                }
+                `return parseInt(digits.join(""), 10)`
             )
         ], 'integer')
     ])

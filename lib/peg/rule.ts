@@ -26,7 +26,7 @@ export class Rule extends Pattern {
     constructor(name, expressions, readableName = null) {
         super()
         this.name         = name
-        this.expressions  = expressions
+        this._expressions = expressions
         this.readableName = readableName
     }
 
@@ -37,7 +37,6 @@ export class Rule extends Pattern {
             return `${INDENT}${startSymbol} ${this.expressions[index].toPegText()}\n`
         })
         let readableName = this.readableName ? JSON.stringify(this.readableName) : ''
-
 
         return `${this.name} ${readableName}\n${exps.join('')}`
     }

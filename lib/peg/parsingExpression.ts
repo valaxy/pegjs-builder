@@ -3,7 +3,7 @@ import stringHelp from '../utility/stringHelp'
 
 export class ParsingExpression extends Pattern {
     private _pattern:Pattern
-    private _action:Function
+    private _action:Function | string
 
     get pattern() { return this._pattern }
 
@@ -23,7 +23,11 @@ export class ParsingExpression extends Pattern {
 
     toPegText() {
         let body = this.pattern.toPegText()
-        let func = this.action ? ('{' + stringHelp.getExecScript(this.action.toString()) + '}') : ''
+        let func = this.action
+            ? ('{' + (typeof this.action == 'string'
+            ? this.action
+            : stringHelp.getExecScript(this.action.toString())) + '}')
+            : ''
         return body + ' ' + func
     }
 }
