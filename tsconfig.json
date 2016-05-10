@@ -6,6 +6,6 @@
         "declaration": true
     },
     "exclude":         [
-        "dest/"
+        "dest"
     ]
 }

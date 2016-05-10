@@ -1,13 +1,4 @@
-import chunk from "../../lib/peg/pattern/chunk"
-import any from "../../lib/peg/pattern/any"
-import rangeOf from "../../lib/peg/pattern/rangeOf"
-import anyOf from "../../lib/peg/pattern/anyOf"
-import subRule from "../../lib/peg/pattern/subRule"
-import zeroOrMore from "../../lib/peg/pattern/zeroOrMore";
-import oneOrMore from "../../lib/peg/pattern/oneOrMore";
-import optional from "../../lib/peg/pattern/optional";
-import sequence from "../../lib/peg/pattern/sequence";
-import label from "../../lib/peg/pattern/label";
+import {chunk,any,rangeOf,anyOf,subRule,zeroOrMore,oneOrMore,optional,sequence,label} from '../../lib/peg/patterns'
 
 QUnit.module('Pattern')
 

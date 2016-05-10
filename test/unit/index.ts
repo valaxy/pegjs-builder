@@ -1,2 +1,2 @@
-require('../peg/pattern')
+require('../peg/patterns')
 require('../peg/rule')
