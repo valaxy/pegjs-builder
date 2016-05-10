@@ -14,7 +14,7 @@ export class ParsingExpression extends Pattern {
 
     set action(value) { this._action = value }
 
-    
+
     constructor(pattern, action?) {
         super()
         this.pattern = pattern

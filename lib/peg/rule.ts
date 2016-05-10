@@ -16,8 +16,6 @@ export class Rule extends Pattern {
 
     get expressions() { return this._expressions}
 
-    set expressions(value) { this._expressions = value }
-
 
     get readableName() { return this._readableName }
 

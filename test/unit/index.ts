@@ -1,2 +1,2 @@
 require('../peg/patterns')
-require('../peg/rule')
+require('../peg/syntax')
