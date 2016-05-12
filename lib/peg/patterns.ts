@@ -8,6 +8,7 @@ import rangeOf from './pattern/rangeOf'
 import sequence from './pattern/sequence'
 import subRule from './pattern/subRule'
 import zeroOrMore from './pattern/zeroOrMore'
+import gather from './pattern/gather'
 
 export {
     any,
@@ -19,5 +20,6 @@ export {
     rangeOf,
     sequence,
     subRule,
-    zeroOrMore
+    zeroOrMore,
+    gather
 }
