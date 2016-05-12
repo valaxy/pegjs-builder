@@ -9,6 +9,9 @@ import sequence from './pattern/sequence'
 import subRule from './pattern/subRule'
 import zeroOrMore from './pattern/zeroOrMore'
 import gather from './pattern/gather'
+import test from './pattern/test'
+import testNot from './pattern/testNot'
+
 
 export {
     any,
@@ -21,5 +24,7 @@ export {
     sequence,
     subRule,
     zeroOrMore,
-    gather
+    gather,
+    test,
+    testNot
 }

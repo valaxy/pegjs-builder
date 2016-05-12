@@ -1,4 +1,5 @@
-import {chunk,any,rangeOf,anyOf,subRule,zeroOrMore,oneOrMore,optional,sequence,label,gather} from '../../lib/peg/patterns'
+import {chunk,any,rangeOf,anyOf,subRule,zeroOrMore,oneOrMore,optional,sequence,
+    label,gather, test, testNot} from '../../lib/peg/patterns'
 
 QUnit.module('Pattern')
 
@@ -53,6 +54,13 @@ QUnit.test('optional', assert => {
     ).toPegText(), 'abc?')
 })
 
+QUnit.test('test', assert => {
+    assert.equal(test(subRule('abc')).toPegText(), '&abc')
+})
+
+QUnit.test('testNot', assert => {
+    assert.equal(testNot(subRule('abc')).toPegText(), '!abc')
+})
 
 QUnit.test('label', assert => {
     assert.equal(label('abc', chunk('111')).toPegText(), 'abc:"111"')

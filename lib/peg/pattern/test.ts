@@ -1,19 +1,15 @@
-//import Rule from "./P"
-//
-//export default class Test extends Rule {
-//
-//    constructor(private _rule:Rule) {
-//        super()
-//    }
-//
-//
-//    parse({text, pos, setPos}) {
-//        let p = pos
-//        if (!this._rule.parse.apply(this._rule, arguments)) {
-//            return false
-//        } else {
-//            setPos(p)
-//            return true
-//        }
-//    }
-//}
+import Pattern from "./pattern'
+
+export default class Test extends Pattern {
+    constructor(private _pattern:Pattern) {
+        super()
+    }
+
+    toPegText() {
+        return `&${this._pattern.toPegText()}`
+    }
+}
+
+export default function test(...params) {
+    return new Test(...params)
+}
